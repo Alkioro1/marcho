@@ -3,8 +3,8 @@ const scss = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
 const uglify = require('gulp-uglify');
-const imagemin = require('gulp-imagemin');
-const del = require('del')
+const imagemin = import('gulp-imagemin');
+const del = import('del')
 const browserSync = require('browser-sync').create();
 
 function browsersync() {
@@ -40,7 +40,7 @@ function scripts() {
 }
 
 function images() {
-  returnsrc('app/images/**/*/*')
+  return src('app/images/**/*/*')
   .pipe(imagemin([
     imagemin.gifsicle({interlaced: true}),
 	  imagemin.mozjpeg({quality: 75, progressive: true}),
